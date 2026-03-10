@@ -11,4 +11,7 @@
 - #### POST
 - #### PUT
 - #### DELETE
+### Endpoints
+  - #### Web applications endpoints
+  - #### API endpoints
 
