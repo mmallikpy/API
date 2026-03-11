@@ -15,3 +15,15 @@
   - #### Web applications endpoints
   - #### API endpoints
 
+### Serializers and dserializers
+  - #### Model serializers
+### Functions based view
+### Class based view
+  - APIView
+    - get()
+    - post()
+    - get_object()
+    - put()
+    - delete()
+  - Mixins
+    
