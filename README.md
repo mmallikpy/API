@@ -26,4 +26,12 @@
     - put()
     - delete()
   - Mixins
-    
+    - retriewModelMixin
+    - ##### Create
+      - CreateModelMixin
+    - ##### Read
+      - ListModelMixin
+    - ##### Update
+      UpdateModelMixin
+    - ##### Delete
+      - DestroyModelMixin
