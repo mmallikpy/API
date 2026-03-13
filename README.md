@@ -35,3 +35,27 @@
       UpdateModelMixin
     - ##### Delete
       - DestroyModelMixin
+  - Generics
+    - ListAPIView        For listing the objects
+    - CreateAPIView      For creating the objects
+    - RetrieveAPIView    For retrieveing a single object using pk
+    - UpdateAPIView      For updateing a single object using pk
+    - DestroyAPIView     For deleting an object using pk
+    ###### Combination API view
+    - ListCreateAPIView              For listing and createing objects
+    - RetrieveUpdateAPIView          For retrieving & updating objects using pk
+    - RetieveUpdateDestroyAPIview    For retrieving, updating & deleting objects using pk
+
+  - Viewsets
+    - viewsets.ViewSet
+      - list()
+      - create()
+      - retrieve()
+      - update()
+      - delete()
+        
+    - viewsets.ModelViewSet
+
+    - Routers  
+    
+##### Nested serializers
