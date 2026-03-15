@@ -59,3 +59,10 @@
     - Routers  
     
 ##### Nested serializers
+##### Pagination
+  - PageNumberPagination
+  - LimitOffsetPagination
+
+  - GlobalPagination
+  - CustomPagination
+##### Filtering
