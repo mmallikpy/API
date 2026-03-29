@@ -66,3 +66,6 @@
   - GlobalPagination
   - CustomPagination
 ##### Filtering
+  - Global Filter
+  - Custom Filter
+  - 
