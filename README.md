@@ -68,4 +68,4 @@
 ##### Filtering
   - Global Filter
   - Custom Filter
-  - 
+  - Search filter
