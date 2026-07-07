@@ -1,5 +1,6 @@
 # ----------------------------- API -----------------------------
 ### What is API?
+### Why we use API?
 ### How dose it's work?
 ### What is REST API?
 ### Core principles of REST API?
