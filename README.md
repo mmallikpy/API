@@ -139,8 +139,12 @@ converted back into complex types, after first validating the incoming data.
     - Browsable API
     - Massive Time Savings
     - Exceptional Scale
-    
+
+### Requests
+### Responses
 ### Functions based view
+
+
 ### Class based view
   - APIView
     - get()
