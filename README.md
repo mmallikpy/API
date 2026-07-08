@@ -100,14 +100,46 @@ https://api.weather.com/users
       </html>
       ```
   - #### API endpoints
+    ```drf
+    An API endpoint is a URL that returns data (usually JSON or XML) instead of a web page. It is designed for applications to communicate with each other.
+    ```
+    - ##### Examples
+      ```drf
+      https://api.example.com/users
+      https://api.example.com/login
+      https://api.example.com/products
+
+      GET https://api.example.com/users
+      
+      # Output
+      {
+          "id": 1,
+          "name": "Alice"
+      }
+      ``
+
+# What is DRF?
+```drf
+DRF stands for Django REST Framework, which is a powerful, flexible, and open-source toolkit built on top of Django specifically
+for creating Web APIs (Application Programming Interfaces)
+```
 
 ### Serializers and dserializers
-  - #### Model serializers
 ```drf
 Serializers allow complex data such as querysets and model instances to be converted to native Python datatypes that can then
 be easily rendered into JSON, XML or other content types. Serializers also provide deserialization, allowing parsed data to be
 converted back into complex types, after first validating the incoming data.
 ```
+### Core Architecture Components
+    - Serializers
+    - API Views & ViewSets
+    - Routers
+    - Authentication & Permissions
+### Key Benefits
+    - Browsable API
+    - Massive Time Savings
+    - Exceptional Scale
+    
 ### Functions based view
 ### Class based view
   - APIView
