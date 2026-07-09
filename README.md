@@ -130,6 +130,74 @@ Serializers allow complex data such as querysets and model instances to be conve
 be easily rendered into JSON, XML or other content types. Serializers also provide deserialization, allowing parsed data to be
 converted back into complex types, after first validating the incoming data.
 ```
+### What is the Meta class?
+```drf
+The Meta class is an inner class inside a ModelSerializer that provides configuration to the serializer.
+
+It tells Django REST Framework how the serializer should behave.
+```
+### Why do we use the Meta class?
+```drf
+ModelSerializer needs to know:
+
+Which model should it use?
+Which fields should be included?
+Which fields should be read-only?
+Which fields should be excluded?
+Any extra configuration for fields?
+
+All of this is defined inside the Meta class.
+```
+
+### What's the purpose of "fields" in ModelSerializer
+```drf
+In Django REST Framework (DRF), the fields attribute inside a ModelSerializer's Meta class explicitly controls which database columns
+or properties are included in your API's JSON input and output.
+```
+### How many types of validation are there?
+|Type|Purpose|
+|------|-----|
+|Built-in Validation|DRF/Model does it automatically|
+| Field-level Validation|Validate a specific field|
+|Object-level Validation|Validate multiple fields at once|
+| Reusable Validator|Repeatedly using the same validation Custom validator function, RegexValidator, MinValueValidatorr|
+
+
+### What validations does DRF do in ModelSerializer and what does it not do?
+|Validation|Automatic?|
+|-------|-------|
+|required|✅|
+|blank|✅|
+| null                            | ✅                            |
+| max_length                      | ✅                            |
+| min_length (serializer field)   | ✅                            |
+| Email format                    | ✅                            |
+| URL format                      | ✅                            |
+| Integer type                    | ✅                            |
+| Float type                      | ✅                            |
+| Decimal type                    | ✅                            |
+| Boolean type                    | ✅                            |
+| Date/Time format                | ✅                            |
+| UUID format                     | ✅                            |
+| choices                         | ✅                            |
+| unique                          | ✅                            |
+| UniqueConstraint                | ✅                            |
+| Model field validators          | ✅                            |
+| Custom business rules           | ❌                            |
+| Cross-field validation          | ❌                            |
+| Password confirmation           | ❌                            |
+| Age > 18 (unless you define it) | ❌                            |
+| Custom email domain             | ❌                            |
+| Custom phone format             | ❌ (unless using a validator) |
+
+### What is the Nested Serializer?
+```drf
+A Nested Serializer is a serializer inside another serializer.
+
+
+It is used when one model is related to another model, and you want to return the related object's details, not just its ID.
+```
+
 ### Core Architecture Components
     - Serializers
     - API Views & ViewSets
