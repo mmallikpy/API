@@ -413,6 +413,28 @@ It is used when one model is related to another model, and you want to return th
                     serializer_class = StudentSerializers
 
         ```
+        - ##### urls.py
+        ```drf
+                from django.contrib import admin
+                from django.urls import path
+                from .views import *
+
+                urlpatterns = [
+                    #------------1st way of generics---------------
+                    path('studentgenericslist/', StudentsGenericsList.as_view(), name='studentgenerics-test-list'),
+                    path('studentgenericscreate/', StudentsGenericsCreate.as_view(), name='studentgenerics-test-create'),
+                    path('studentgenericsupdate/<int:pk>', StudentsGenericsUpdate.as_view(), name='studentgenerics-test-update'),
+                    path('StudentsGenericsDelete/<int:pk>', StudentsGenericsDelete.as_view(), name='studentgenerics-test-delete'),
+                
+                    #------------2nd way of generics---------------
+                    path('StudentsGenericsListCreateSecondway/', StudentsGenericsListCreateSecondway.as_view(), name='studentgenerics-test-List_Create_Secondway'),
+                    path('StudentsGenericsUpdateDeleteSecondway/<int:pk>', StudentsGenericsUpdateDeleteSecondway.as_view(), name='studentgenerics-test-update_delete_Secondway'),
+                
+                    #------------3rd way of generics---------------
+                    path('StudentsGenericsListCreate/', StudentsGenericsListCreate.as_view(), name='studentgenerics-test-List_Create'),
+                    path('StudentsGenericsListUpdateDelete/<int:pk>', StudentsGenericsListUpdateDelete.as_view(), name='studentgenerics-test-List_Create_Update_Delete'),
+                ]
+        ```
         
 
   - Viewsets
