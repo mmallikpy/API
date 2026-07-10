@@ -257,6 +257,56 @@ It is used when one model is related to another model, and you want to return th
       DestroyModelMixin is used to delete a single object from the database. It provides the built-in destroy() method,
       which retrieves the object, calls perform_destroy(), deletes the object, and returns a 204 No Content response.
       ```
+    #### Examples :
+    - ##### serializers.py
+      ```drf
+      from rest_framework import serializers
+      from snippets.models import BookStore
+      
+      class BookStoreSerializer(serializers.ModelSerializer):
+            class Meta:
+                model = BookStore
+                fields = "__all__"
+    
+      ```
+    - #### views.py
+      ```drf
+          from .models import BookStore
+          from snippets.serializers import BookStoreSerializer
+          from rest_framework import mixins, generics
+
+          class bookViewMixins(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
+                queryset = BookStore.objects.all()
+                serializer_class = BookStoreSerializer
+    
+                def get(self, request):
+                    return self.list(request)
+    
+                def post(self,request):
+                    return self.create(request)
+
+          class bookViewMixinsDetail(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView):
+                queryset = BookStore.objects.all()
+                serializer_class = BookStoreSerializer
+    
+                def get(self, request, pk):
+                    return self.retrieve(request, pk)
+
+                def put(self, request, pk):
+                    return self.update(request, pk)
+    
+                def delete(self, request, pk):
+                    return self.destroy(request, pk)
+    ```
+  - #### urls.py
+    ```drf
+        from django.urls import path
+        from .views import *
+        urlpatterns = [
+            path("bookViewMixins/", bookViewMixins.as_view(), name="book view mixins"),
+            path("bookViewMixins/<int:pk>", bookViewMixinsDetail.as_view(), name="book view mixins detail")
+            ]
+    ```
   - Generics
     - ListAPIView        For listing the objects
     - CreateAPIView      For creating the objects
