@@ -297,16 +297,16 @@ It is used when one model is related to another model, and you want to return th
     
                 def delete(self, request, pk):
                     return self.destroy(request, pk)
-    ```
-  - #### urls.py
-    ```drf
+      ```
+    - #### urls.py
+      ```drf
         from django.urls import path
         from .views import *
         urlpatterns = [
             path("bookViewMixins/", bookViewMixins.as_view(), name="book view mixins"),
             path("bookViewMixins/<int:pk>", bookViewMixinsDetail.as_view(), name="book view mixins detail")
             ]
-    ```
+      ```
   - Generics
     - ListAPIView        For listing the objects
     - CreateAPIView      For creating the objects
