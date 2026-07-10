@@ -308,15 +308,53 @@ It is used when one model is related to another model, and you want to return th
             ]
       ```
   - Generics
-    - ListAPIView        For listing the objects
-    - CreateAPIView      For creating the objects
-    - RetrieveAPIView    For retrieveing a single object using pk
-    - UpdateAPIView      For updateing a single object using pk
-    - DestroyAPIView     For deleting an object using pk
+    - ListAPIView
+      ```drf
+      ListAPIView is a generic class-based view used to retrieve a list of objects. It handles GET requests and internally uses
+      ListModelMixin with GenericAPIView. It automatically fetches the queryset, serializes it with many=True, and returns the
+      list of objects. It also supports pagination, filtering, and ordering if configured.
+      ```
+    - CreateAPIView
+      ```drf
+      CreateAPIView is a generic class-based view used to create a new object. It handles POST requests and internally uses
+      CreateModelMixin with GenericAPIView. It validates the request data using the serializer, saves the object, and returns
+      a 201 Created response.
+      ```
+    - RetrieveAPIView
+      ```drf
+      RetrieveAPIView is a generic class-based view used to retrieve a single object. It handles GET requests for a specific
+      resource and internally uses RetrieveModelMixin with GenericAPIView. It fetches the object by its lookup field
+      (usually the primary key), serializes it, and returns the response.
+      ```
+    - UpdateAPIView
+      ```drf
+      UpdateAPIView is a generic class-based view used to update an existing object. It handles both PUT and PATCH requests
+      and internally uses UpdateModelMixin with GenericAPIView. PUT performs a full update, while PATCH performs a partial update.
+      ```
+    - DestroyAPIView
+      ```drf
+      DestroyAPIView is a generic class-based view used to delete a single object. It handles DELETE requests and internally uses
+      DestroyModelMixin with GenericAPIView. It retrieves the object, deletes it, and returns a 204 No Content response.
+      ```
     ###### Combination API view
-    - ListCreateAPIView              For listing and createing objects
-    - RetrieveUpdateAPIView          For retrieving & updating objects using pk
-    - RetieveUpdateDestroyAPIview    For retrieving, updating & deleting objects using pk
+    - ListCreateAPIView
+      ```drf
+      ListCreateAPIView is a generic class-based view that combines listing and creating objects. It handles GET requests to return
+      a list of objects and POST requests to create a new object. Internally, it uses ListModelMixin, CreateModelMixin, and
+      GenericAPIView.
+      ```
+    - RetrieveUpdateAPIView
+      ```drf
+      RetrieveUpdateAPIView is a generic class-based view that combines retrieving and updating a single object. It handles GET
+      requests to retrieve an object and PUT or PATCH requests to update it. Internally, it uses RetrieveModelMixin, UpdateModelMixin,
+      and GenericAPIView.
+      ```
+    - RetieveUpdateDestroyAPIview
+      ```drf
+      RetrieveUpdateDestroyAPIView is a generic class-based view that combines retrieving, updating, and deleting a single object.
+      It handles GET, PUT, PATCH, and DELETE requests. Internally, it uses RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin,
+      and GenericAPIView.
+      ```
 
   - Viewsets
     - viewsets.ViewSet
