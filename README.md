@@ -356,6 +356,65 @@ It is used when one model is related to another model, and you want to return th
       and GenericAPIView.
       ```
 
+      #### Examples :
+      - ##### serializers.py
+        ```drf
+            from rest_framework import serializers
+            from employees.models import Employee
+        
+            class EmployeeSerilizer(serializers.ModelSerializer):
+                class Meta:
+                    model = Employee
+                    fields = "__all__"
+        ```
+      - ##### views.py
+        ```drf
+              from rest_framework import generics
+              from .serializers import StudentSerializers
+
+            #------------1st way of generics---------------
+                class StudentsGenericsList(generics.ListAPIView):
+                    queryset = SutdentGenericsTest.objects.all()
+                    serializer_class = StudentSerializers
+
+
+                class StudentsGenericsCreate(generics.CreateAPIView):
+                    queryset = SutdentGenericsTest.objects.all()
+                    serializer_class = StudentSerializers
+
+                class StudentsGenericsUpdate(generics.RetrieveAPIView, generics.UpdateAPIView):
+                    queryset = SutdentGenericsTest.objects.all()
+                    serializer_class = StudentSerializers
+                    lookup_field = 'pk'
+
+                class StudentsGenericsDelete(generics.RetrieveAPIView, generics.DestroyAPIView):
+                    queryset = SutdentGenericsTest.objects.all()
+                    serializer_class = StudentSerializers
+                    lookup_field = 'pk'
+          
+
+            #------------2nd way of generics---------------
+                class StudentsGenericsListCreateSecondway(generics.ListAPIView, generics.CreateAPIView):
+                    queryset = SutdentGenericsTest.objects.all()
+                    serializer_class = StudentSerializers
+                    
+                class StudentsGenericsUpdateDeleteSecondway(generics.RetrieveAPIView, generics.UpdateAPIView, generics.DestroyAPIView):
+                    queryset = SutdentGenericsTest.objects.all()
+                    serializer_class = StudentSerializers
+                    lookup_field = 'pk'
+
+            #------------3rd way of generics---------------
+                class StudentsGenericsListCreate(generics.ListCreateAPIView):
+                    queryset = SutdentGenericsTest.objects.all()
+                    serializer_class = StudentSerializers
+                    
+                class StudentsGenericsListUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
+                    queryset = SutdentGenericsTest.objects.all()
+                    serializer_class = StudentSerializers
+
+        ```
+        
+
   - Viewsets
     - viewsets.ViewSet
       - list()
