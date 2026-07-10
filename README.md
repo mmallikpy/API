@@ -119,7 +119,8 @@ https://api.weather.com/users
           "id": 1,
           "name": "Alice"
       }
-      ``
+      ```
+<hr>
 
 # What is DRF?
 ```drf
@@ -213,8 +214,11 @@ It is used when one model is related to another model, and you want to return th
 
 ### Requests
 ### Responses
+<hr>
+
 ### Functions based view
 
+<hr>
 
 ### Class based view
   - APIView
@@ -448,7 +452,8 @@ It is used when one model is related to another model, and you want to return th
     - viewsets.ModelViewSet
 
     - Routers  
-    
+<hr>
+
 ##### Nested serializers
 ##### Pagination
   - PageNumberPagination
