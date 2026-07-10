@@ -11,7 +11,8 @@ An API works like a waiter in a restaurant, acting as the middleman between you 
 
 Here is the step-by-step process of how it works in real-time:
 The 4-Step API Process
-    1. The Request: You interact with an app (like searching for a flight). The app sends a structured request to a remote server via the API.
+    1. The Request: You interact with an app (like searching for a flight). The app sends a structured request to a remote
+    server via the API.
     2. The Delivery: The API securely delivers this request across the internet to the correct server.
     3. The Response: The server processes the request, looks up the data in its database, and formulates an answer.
     4. The Translation: The API takes that data back to your app, which translates it into a readable format on your screen.
@@ -29,8 +30,9 @@ The 4-Step API Process
 
 ### What is REST API?
 ```drf
-A REST API (Representational State Transfer) is a popular architectural style used to build web services. It allows two computers to communicate over
-the internet using standard web protocols like HTTP.Think of it as a set of rules that developers follow so their applications can talk to each other smoothly.
+A REST API (Representational State Transfer) is a popular architectural style used to build web services. It allows two computers
+to communicate over the internet using standard web protocols like HTTP.Think of it as a set of rules that developers follow so
+their applications can talk to each other smoothly.
 ```
 ### How a REST API Works?
 ```drf
@@ -101,7 +103,8 @@ https://api.weather.com/users
       ```
   - #### API endpoints
     ```drf
-    An API endpoint is a URL that returns data (usually JSON or XML) instead of a web page. It is designed for applications to communicate with each other.
+    An API endpoint is a URL that returns data (usually JSON or XML) instead of a web page. It is designed for applications to
+    communicate with each other.
     ```
     - ##### Examples
       ```drf
@@ -151,8 +154,8 @@ All of this is defined inside the Meta class.
 
 ### What's the purpose of "fields" in ModelSerializer
 ```drf
-In Django REST Framework (DRF), the fields attribute inside a ModelSerializer's Meta class explicitly controls which database columns
-or properties are included in your API's JSON input and output.
+In Django REST Framework (DRF), the fields attribute inside a ModelSerializer's Meta class explicitly controls which database
+columns or properties are included in your API's JSON input and output.
 ```
 ### How many types of validation are there?
 |Type|Purpose|
@@ -221,15 +224,39 @@ It is used when one model is related to another model, and you want to return th
     - put()
     - delete()
   - Mixins
+    ```drf
+    GenericAPIView provides the core functionality required by DRF mixins, such as get_queryset(), get_object(), and
+    get_serializer().RetrieveModelMixin uses these methods to retrieve an object and serialize it. Without GenericAPIView,
+    the mixin cannot work properly.
+    ```
     - retriewModelMixin
-    - ##### Create
-      - CreateModelMixin
-    - ##### Read
-      - ListModelMixin
-    - ##### Update
-      UpdateModelMixin
-    - ##### Delete
-      - DestroyModelMixin
+      ```drf
+          RetrieveModelMixin is used to retrieve (get) a single object from the database.
+      ```
+    - CreateModelMixin
+        ```drf
+        CreateModelMixin is used to create a single object in the database. It provides the built-in create() method,
+        which validates the request data, saves the object, and returns a 201 Created response. It does not support
+        bulk creation by default. To create multiple objects, you must use many=True and implement bulk creation logic
+        if needed.
+        ```    
+    - ListModelMixin
+      ```drf
+      ListModelMixin is used to return a collection of objects. It provides the built-in list() method, which retrieves
+      the queryset, serializes it with many=True, and returns the serialized data in the response. It is commonly used
+      for endpoints like GET /students/.
+      ```
+    - UpdateModelMixin
+      ```drf
+      UpdateModelMixin is used to update an existing object. It provides the built-in update() method for full updates
+      (PUT) and partial_update() for partial updates (PATCH). It retrieves the object, validates the incoming data, saves
+      the changes, and returns the updated object in the response.
+      ```
+    - DestroyModelMixin
+      ```drf
+      DestroyModelMixin is used to delete a single object from the database. It provides the built-in destroy() method,
+      which retrieves the object, calls perform_destroy(), deletes the object, and returns a 204 No Content response.
+      ```
   - Generics
     - ListAPIView        For listing the objects
     - CreateAPIView      For creating the objects
