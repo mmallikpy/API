@@ -452,17 +452,18 @@ It is used when one model is related to another model, and you want to return th
       - ##### serializers.py
         ```drf
             from rest_framework import serializers
-            from employees.models import Employee
+            from .models import SutdentGenericsTest
         
-            class EmployeeSerilizer(serializers.ModelSerializer):
+            class StudentSerializers(serializers.ModelSerializer):
                 class Meta:
-                    model = Employee
+                    model = SutdentGenericsTest
                     fields = "__all__"
         ```
       - ##### views.py
         ```drf
               from rest_framework import generics
               from .serializers import StudentSerializers
+              from .models import SutdentGenericsTest
 
             #------------1st way of generics---------------
                 class StudentsGenericsList(generics.ListAPIView):
@@ -531,11 +532,91 @@ It is used when one model is related to another model, and you want to return th
 
   - Viewsets
     - viewsets.ViewSet
-      - list()
-      - create()
-      - retrieve()
-      - update()
-      - delete()
+      - list
+        ```drf
+        The list() action is used to retrieve a collection of objects. It handles HTTP GET requests for a collection endpoint,
+        such as /students/, and returns a serialized list of objects.
+        ```
+      - create
+        ```drf
+        The create() action is used to create a new object. It handles HTTP POST requests, validates the request data using a
+        serializer, saves the object, and returns a 201 Created response.
+        ```
+      - retrieve
+        ```drf
+        The retrieve() action is used to retrieve a single object. It handles HTTP GET requests for a detail endpoint, such as
+        /students/1/, fetches the object by its lookup field (usually the primary key), serializes it, and returns it.
+        ```
+      - update
+        ```drf
+        The update() action is used to perform a full update of an existing object. It handles HTTP PUT requests, validates the
+        incoming data, updates the object, and returns the updated object.
+        ```
+      - delete
+        ```drf
+        The destroy() action is used to delete an existing object. It handles HTTP DELETE requests, removes the object from the
+        database, and returns a 204 No Content response.
+        ```
+    #### Examples :
+    - ##### serializers.py
+      ```drf
+      from rest_framework import serializers
+      from .models import HumanInfo
+      
+      class HumanInfoSerializer(serializers.ModelSerializer):
+      class Meta:
+          model = HumanInfo
+          fields = "__all__"
+      ```
+    - ##### views.py
+      ```drf
+      from rest_framework import viewsets
+      from .serializers import HumanInfoSerializer
+      from django.shortcuts import get_object_or_404
+      from .models import HumanInfo
+
+      class humanViewset(viewsets.ViewSet):
+
+        def list(self, request):
+            queryset = HumanInfo.objects.all()
+            serializer_class = HumanInfoSerializer(queryset, many=True)
+            return Response(serializer_class.data)
+    
+        def create(self, request):
+            serializer_class = HumanInfoSerializer(data = request.data)
+            if serializer_class.is_valid():
+                serializer_class.save()
+                return Response(serializer_class.errors)
+    
+        def retrieve(self, request, pk=None):
+            human = get_object_or_404(HumanInfo, pk=pk)
+            serializer = HumanInfoSerializer(human)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+    
+        def update(self, request, pk):
+            human = get_object_or_404(HumanInfo, pk=pk)
+            serializer = HumanInfoSerializer(human, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors)
+    
+        def delete(self, request, pk):
+            human = get_object_or_404(HumanInfo, pk=pk)
+            human.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+
+      ```
+    - ##### urls.py
+      ```drf
+      from django.urls import path
+      from .views import *
+      urlpatterns = [
+            path("humanViewset/", humanViewset.as_view({'get': 'list', 'post':'create'}), name="Human viewserts"),
+            path("humanViewset/<int:pk>/", humanViewset.as_view({'get':'retrieve', 'patch':'update', 'put':'update', 'delete':'delete'}), name="Human viewserts detail"),
+        ]
+      ```
+      
         
     - viewsets.ModelViewSet
 
