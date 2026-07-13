@@ -587,6 +587,7 @@ It is used when one model is related to another model, and you want to return th
       from rest_framework import viewsets
       from .serializers import HumanInfoSerializer
       from django.shortcuts import get_object_or_404
+      from rest_framework.response import Response
       from .models import HumanInfo
 
       class humanViewset(viewsets.ViewSet):
@@ -630,7 +631,16 @@ It is used when one model is related to another model, and you want to return th
             path("humanViewset/<int:pk>/", humanViewset.as_view({'get':'retrieve', 'patch':'update', 'put':'update', 'delete':'delete'}), name="Human viewserts detail"),
         ]
       ```
-      
+
+      #### Router
+      ```drf
+      from rest_framework.routers import DefaultRouter
+
+      router = DefaultRouter()
+      router.register("humans", HumanViewSet, basename="human")
+        
+      urlpatterns = router.urls
+      ```     
         
     - viewsets.ModelViewSet
 
