@@ -654,21 +654,21 @@ It is used when one model is related to another model, and you want to return th
         No ordering
         No CRUD implementation (you must write actions yourself)
       ```
+<hr>
 
-        
-    - viewsets.GenericViewSet
-      - #### What is it?
-        ```drf
+- viewsets.GenericViewSet
+  - #### What is it?
+    ```drf
         enericViewSet is a DRF class that combines GenericAPIView and ViewSet. It provides generic features
         (queryset, serializer, filtering, pagination, etc.) but does not implement CRUD actions by itself.
-        ```
-     - #### What problem does it solve?
-       ```drf
+    ```
+  - #### What problem does it solve?
+    ```drf
         Without GenericViewSet, you would have to:
             Write custom actions manually.
             Add filtering, pagination, serializer handling yourself.
         It provides these features while letting you choose only the CRUD actions you need.
-       ```
+    ```
     - #### What features does it provide?
       ```drf
         queryset
@@ -684,6 +684,54 @@ It is used when one model is related to another model, and you want to return th
         Authentication
         Routers support
         Can use DRF Mixins (ListModelMixin, CreateModelMixin, etc.)
+      ```
+    - #### serializers.py
+      ```drf
+      from rest_framework import serializers
+      from .models import HumanInfo
+      
+      class HumanInfoSerializer(serializers.ModelSerializer):
+      class Meta:
+          model = HumanInfo
+          fields = "__all__"
+      ```
+    - #### views.py
+      ```drf
+        from rest_framework import viewsets, mixins
+        from .models import HumanInfo
+        from .serializers import HumanInfoSerializer
+        
+        class HumanViewSet( mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
+            queryset = HumanInfo.objects.all()
+            serializer_class = HumanInfoSerializer
+        
+            def get(self, request):
+                return self.list(request)
+            
+            def post(self, request):
+                return self.create(request)
+        
+        class HumanViewSetdetails(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
+            queryset = HumanInfo.objects.all()
+            serializer_class = HumanInfoSerializer
+        
+            def get(self, reqeust, pk):
+                return self.retrieve(reqeust, pk)
+            
+            def put(self, reqeust, pk):
+                return self.update(reqeust, pk)
+            
+            def delete(self, reqeust, pk):
+                return self.destroy(reqeust, pk)
+      ```
+    - #### urls.py
+      ```drf
+      from django.urls import path
+      from .views import *
+      urlpatterns = [
+            path("humanViewSetx/", HumanViewSet.as_view({'get': 'list', 'post':'create'}), name="Human api view set"),
+            path("humanViewSetx/<int:pk>", HumanViewSetdetails.as_view({'get': 'retrieve', 'put':'update', 'delete':'destroy'}), name="Human api view set details"),
+      ]
       ```
 
     - viewsets.ModelViewSet
