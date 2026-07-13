@@ -632,7 +632,7 @@ It is used when one model is related to another model, and you want to return th
         ]
       ```
 
-      #### Router
+    - #### Router
       ```drf
       from rest_framework.routers import DefaultRouter
 
@@ -640,7 +640,21 @@ It is used when one model is related to another model, and you want to return th
       router.register("humans", HumanViewSet, basename="human")
         
       urlpatterns = router.urls
-      ```     
+      ```
+
+    - #### Limitations
+      ```drf
+      Compared to GenericViewSet and ModelViewSet:
+
+        No automatic queryset handling
+        No serializer integration by default
+        No pagination
+        No filtering
+        No search
+        No ordering
+        No CRUD implementation (you must write actions yourself)
+      ```
+
         
     - viewsets.ModelViewSet
 
