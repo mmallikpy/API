@@ -634,3 +634,14 @@ It is used when one model is related to another model, and you want to return th
   - Global Filter
   - Custom Filter
   - Search filter
+
+<hr>
+
+| Class              |      CRUD      | Filtering | Pagination |  Search  | Ordering | Permissions | Authentication | Throttling |
+| ------------------ | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :--------: |
+| `APIView`          |    ❌ Manual    |  ❌ Manual |  ❌ Manual  | ❌ Manual | ❌ Manual |      ✅      |        ✅       |      ✅     |
+| `ViewSet`          |    ⚠️ Manual   |  ❌ Manual |  ❌ Manual  | ❌ Manual | ❌ Manual |      ✅      |        ✅       |      ✅     |
+| `GenericAPIView`   |   ⚠️ Partial   |     ✅     |      ✅     |     ✅    |     ✅    |      ✅      |        ✅       |      ✅     |
+| `GenericViewSet`   | ⚠️ With Mixins |     ✅     |      ✅     |     ✅    |     ✅    |      ✅      |        ✅       |      ✅     |
+| **`ModelViewSet`** |   ✅ Automatic  |     ✅     |      ✅     |     ✅    |     ✅    |      ✅      |        ✅       |      ✅     |
+
