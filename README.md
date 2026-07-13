@@ -656,6 +656,36 @@ It is used when one model is related to another model, and you want to return th
       ```
 
         
+    - viewsets.GenericViewSet
+      - #### What is it?
+        ```drf
+        enericViewSet is a DRF class that combines GenericAPIView and ViewSet. It provides generic features
+        (queryset, serializer, filtering, pagination, etc.) but does not implement CRUD actions by itself.
+        ```
+     - #### What problem does it solve?
+       ```drf
+        Without GenericViewSet, you would have to:
+            Write custom actions manually.
+            Add filtering, pagination, serializer handling yourself.
+        It provides these features while letting you choose only the CRUD actions you need.
+       ```
+    - #### What features does it provide?
+      ```drf
+        queryset
+        serializer_class
+        get_queryset()
+        get_serializer()
+        get_object()
+        Filtering
+        Searching
+        Ordering
+        Pagination
+        Permissions
+        Authentication
+        Routers support
+        Can use DRF Mixins (ListModelMixin, CreateModelMixin, etc.)
+      ```
+
     - viewsets.ModelViewSet
 
     - Routers  
