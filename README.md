@@ -315,6 +315,20 @@ It is used when one model is related to another model, and you want to return th
               path("humanViewApiview/<int:pk>", HumanApiviewDetail.as_view(), name="Human api view"),
       ]
       ```
+    - #### Limitations
+      ```drf
+
+        Compared to higher-level DRF classes:
+        
+        No automatic queryset handling
+        No serializer integration by default
+        No pagination
+        No filtering
+        No search
+        No ordering
+        No CRUD helpers (list, create, retrieve, etc.)
+        More boilerplate code
+      ```
   - Mixins
     ```drf
     GenericAPIView provides the core functionality required by DRF mixins, such as get_queryset(), get_object(), and
