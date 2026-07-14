@@ -218,9 +218,40 @@ It is used when one model is related to another model, and you want to return th
 
 ### Functions based view
 
-<hr>
+```drf
+    Layer 1: Base API Views (2 Classes)
+        - APIView
+        - GenericAPIView
+    
+    Layer 2: Concrete Generic Views (9 Classes)
+        - CreateAPIView
+        - ListAPIView
+        - RetrieveAPIView
+        - UpdateAPIView
+        - DestroyAPIView
+        - ListCreateAPIView
+        - RetrieveUpdateAPIView
+        - RetrieveDestroyAPIView
+        - RetrieveUpdateDestroyAPIView
+    
+    Layer 3: ViewSets (3 Classes)
+        - ViewSet
+        - GenericViewSet
+        - ModelViewSet
+        - ReadOnlyModelViewSet
+    
+    Layer 4: Mixinx (5 Classes)
+        - CreateModelMixin
+        - ListModelMixin
+        - RetrieveModelMixin
+        - UpdateModelMixin
+        - DestroyModelMixin
+        
+        Note: Mixins can't run alone, It's need "GenericAPIView or GenericViewSet"
+```
 
 ### Class based view
+
   - APIView
     - get
       ```drf
