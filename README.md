@@ -218,6 +218,10 @@ It is used when one model is related to another model, and you want to return th
 
 ### Functions based view
 
+<hr>
+
+### Class based view
+
 ```drf
     Layer 1: Base API Views (2 Classes)
         - APIView
@@ -250,7 +254,7 @@ It is used when one model is related to another model, and you want to return th
         Note: Mixins can't run alone, It's need "GenericAPIView or GenericViewSet"
 ```
 
-### Class based view
+
 
   - APIView
     - get
