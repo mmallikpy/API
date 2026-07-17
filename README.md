@@ -776,10 +776,54 @@ It is used when one model is related to another model, and you want to return th
 
 ##### Nested serializers
 ##### Pagination
-  - PageNumberPagination
-  - LimitOffsetPagination
-
+- ##### What is it?
+  ```drf
+  Pagination is a feature in Django REST Framework (DRF) that divides a large queryset into smaller pages and returns
+  only a limited number of records in each API response. Instead of returning all records at once, the API returns a
+  subset (page) along with information about other pages.
+  ```
+- ##### Why was it created?
+  ```drf
+  Pagination was created to efficiently handle APIs that contain a large amount of data.
+  Without pagination, an API may need to send thousands or millions of records in a single
+  response, making it slow and inefficient.
+  ```
+- ##### Built-in Pagination Classes
   - GlobalPagination
+  - PageNumberPagination
+    ```drf
+    PageNumberPagination is the default pagination class in Django REST Framework (DRF) that divides a queryset
+    into pages and lets clients request a specific page using a page number.
+    ```
+    - Examples
+      ```drf
+      from rest_framework.pagination import PageNumberPagination
+      from rest_framework.response import Response
+
+      class CustomPagination(PageNumberPagination):
+        page_size_query_param = "page_size"
+        page_query_param = "page-num"
+        page_size = 5
+        max_page_size = 5
+
+        def get_paginated_response(self, data):
+            return Response({
+                'next': self.get_next_link(),
+                'previous': self.get_previous_link(),
+                'count': self.page.paginator.count,
+                'page_size': self.page_size,
+                'results': data
+            })
+      ```
+    - common attributes
+      ```drf
+            page_size
+            page_query_param
+            page_size_query_param
+            max_page_size
+            last_page_strings
+      ```
+  - LimitOffsetPagination
   - CustomPagination
 ##### Filtering
   - Global Filter
