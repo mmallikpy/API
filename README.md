@@ -862,7 +862,62 @@ It is used when one model is related to another model, and you want to return th
       ```
 
     
-  - CustomPagination
+  - CursorPagination
+    - #### What is it?
+      ```drf
+          CursorPagination is a built-in pagination class in Django REST Framework (DRF) that paginates data using a cursor
+          instead of page numbers or offsets. A cursor is an encoded token that tells the API where to continue fetching records.
+      ```
+    - #### Why was it created?
+      ```drf
+          It was created to solve the problems of PageNumberPagination and LimitOffsetPagination when working with:
+
+            Very large datasets
+            Frequently changing data
+            Infinite scrolling
+      ```
+    - #### What problem does it solve?
+      ```drf
+          With page numbers or offsets:
+            New records may be inserted while users are browsing.
+            Records can be duplicated or skipped.
+            Large offsets become slow on large databases.
+    
+            CursorPagination solves these problems by using a cursor that always continues from the last fetched record.
+      ```
+    - #### Common Attributes
+      ```drf
+        page_size
+        cursor_query_param
+        ordering
+        page_size_query_param
+        max_page_size
+      ```
+    - #### Example
+      ```drf
+      from rest_framework.pagination import CursorPagination
+      from rest_framework.response import Response
+
+
+      class CursorCustomCursorPagination(CursorPagination):
+            page_size = 5
+            ordering = "-price"
+            cursor_query_param = "cursor"
+            page_size_query_param = "page_size"
+            max_page_size = 100
+        
+            def get_paginated_response(self, data):
+                return Response({
+                    "links": {
+                        "next_page": self.get_next_link(),
+                        "previous_page": self.get_previous_link(),
+                    },
+                    "page_size": self.page_size,
+                    "ordering": self.ordering,
+                    "results": data
+                })
+      ```
+
 ##### Filtering
   - Global Filter
   - Custom Filter
