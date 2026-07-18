@@ -823,7 +823,7 @@ It is used when one model is related to another model, and you want to return th
             max_page_size
             last_page_strings
       ```
-  - LimitOffsetPagination
+- LimitOffsetPagination
   - #### What is it?
     ```drf
         LimitOffsetPagination is a built-in pagination class in Django REST Framework (DRF) that paginates data using limit
