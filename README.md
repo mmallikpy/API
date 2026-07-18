@@ -840,3 +840,11 @@ It is used when one model is related to another model, and you want to return th
 | `GenericViewSet`   | ⚠️ With Mixins |     ✅     |      ✅     |     ✅    |     ✅    |      ✅      |        ✅       |      ✅     |
 | **`ModelViewSet`** |   ✅ Automatic  |     ✅     |      ✅     |     ✅    |     ✅    |      ✅      |        ✅       |      ✅     |
 
+
+#### Disalbe DRF browsable api
+
+```drf
+    REST_FRAMEWORK = {
+        'DEFAULT_RENDERER_CLASSES': ['rest_framework.renderers.JSONRenderer'],
+    }
+```
