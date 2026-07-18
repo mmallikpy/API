@@ -824,6 +824,12 @@ It is used when one model is related to another model, and you want to return th
             last_page_strings
       ```
   - LimitOffsetPagination
+  - #### What is it?
+    ```drf
+        LimitOffsetPagination is a built-in pagination class in Django REST Framework (DRF) that paginates data using limit
+        (how many records to return) and offset (how many records to skip).
+    ```
+    
   - CustomPagination
 ##### Filtering
   - Global Filter
