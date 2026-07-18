@@ -829,6 +829,38 @@ It is used when one model is related to another model, and you want to return th
         LimitOffsetPagination is a built-in pagination class in Django REST Framework (DRF) that paginates data using limit
         (how many records to return) and offset (how many records to skip).
     ```
+    - Example
+      ```drf
+      from rest_framework.pagination import LimitOffsetPagination
+      from rest_framework.response import Response
+
+
+      class LimitOffsetCustomPagination(LimitOffsetPagination):
+            default_limit = 5
+            limit_query_param = "limit"
+            offset_query_param = "offset"
+            max_limit = 100
+        
+            def get_paginated_response(self, data):
+                return Response({
+                    'links': {
+                        'next_page': self.get_next_link(),
+                        'previous_page': self.get_previous_link(),
+                    },
+                    'count': self.count,
+                    'limit': self.limit,
+                    'offset': self.offset,
+                    'results': data
+                })
+      ```
+    - Common attribute
+      ```drf
+          default_limit → Default number of records.
+          limit_query_param → Name of the limit parameter.
+          offset_query_param → Name of the offset parameter.
+          max_limit → Maximum allowed limit.
+      ```
+
     
   - CustomPagination
 ##### Filtering
