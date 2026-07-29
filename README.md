@@ -1018,6 +1018,8 @@ API Group-এর জন্য আলাদা Rate Limit সেট করতে 
 ```
 #### Example
 ```drf
+In settings.py
+
 
 REST_FRAMEWORK = {
     "DEFAULT_THROTTLE_CLASSES": [
@@ -1032,6 +1034,8 @@ REST_FRAMEWORK = {
 }
 
 
+
+In views.py
 
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.throttling import ScopedRateThrottle
