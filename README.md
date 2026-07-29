@@ -1,11 +1,11 @@
 # ----------------------------- API -----------------------------
-### :white_check_mark: What is API?
+### :rocket: What is API?
 ```drf
 API (application programming interface) is a defined set of rules that allows one piece of software to request data or
 actions from another. It specifies how requests are made, what information is exchanged, and how responses are returned,
 so systems can interact without exposing their internal code.
 ```
-### How dose it's work?
+### :rocket: How dose it's work?
 ```drf
 An API works like a waiter in a restaurant, acting as the middleman between you (the client) and the kitchen (the server).
 
@@ -17,7 +17,7 @@ The 4-Step API Process
     3. The Response: The server processes the request, looks up the data in its database, and formulates an answer.
     4. The Translation: The API takes that data back to your app, which translates it into a readable format on your screen.
 ```
-### Based on Architectures how much API are available?
+### :rocket: Based on Architectures how much API are available?
 
 #### 4 types API are available
 
@@ -28,19 +28,19 @@ The 4-Step API Process
 |SOAP|High-security enterprise systems and banks|XML only|
 |RPC (gRPC)|High-performance, microservices communication|Protobuf, JSON|
 
-### What is REST API?
+### :rocket: What is REST API?
 ```drf
 A REST API (Representational State Transfer) is a popular architectural style used to build web services. It allows two computers
 to communicate over the internet using standard web protocols like HTTP.Think of it as a set of rules that developers follow so
 their applications can talk to each other smoothly.
 ```
-### How a REST API Works?
+### :rocket: How a REST API Works?
 ```drf
 REST APIs work on a Client-Server model.
     1. The Client (your browser, phone app, or frontend code) sends a request.
     2. The Server (where the database lives) receives the request, processes it, and sends back data.
 ```
-### The 4 Main HTTP Methods (CRUD Operations)
+### :rocket: The 4 Main HTTP Methods (CRUD Operations)
 - #### GET
   ```drf
     Requests data from the server
@@ -57,7 +57,7 @@ REST APIs work on a Client-Server model.
   ```
     Removes data from the server
   ```
-### Core principles of REST API?
+### :rocket: Core principles of REST API?
 - #### Client-Server Archicture
 - #### Stateless
 - #### Cacheable
@@ -65,7 +65,7 @@ REST APIs work on a Client-Server model.
 - #### Layered System
 - #### Code on Demand
 
-### What is API endpoints?
+### :rocket: What is API endpoints?
 ```drf
 An API endpoint is a specific URL where an application sends requests to interact with another application or service.
 
@@ -82,7 +82,7 @@ https://api.weather.com/forecast
 https://api.weather.com/users
 ```
 
-### Endpoints
+### :rocket: Endpoints
   - #### Web applications endpoints
     ```drf
     A web application endpoint is a URL that returns an HTML page for a user to view in a browser.
@@ -122,25 +122,25 @@ https://api.weather.com/users
       ```
 <hr>
 
-# What is DRF?
+# :rocket: What is DRF?
 ```drf
 DRF stands for Django REST Framework, which is a powerful, flexible, and open-source toolkit built on top of Django specifically
 for creating Web APIs (Application Programming Interfaces)
 ```
 
-### Serializers and dserializers
+### :rocket: Serializers and dserializers
 ```drf
 Serializers allow complex data such as querysets and model instances to be converted to native Python datatypes that can then
 be easily rendered into JSON, XML or other content types. Serializers also provide deserialization, allowing parsed data to be
 converted back into complex types, after first validating the incoming data.
 ```
-### What is the Meta class?
+### :rocket: What is the Meta class?
 ```drf
 The Meta class is an inner class inside a ModelSerializer that provides configuration to the serializer.
 
 It tells Django REST Framework how the serializer should behave.
 ```
-### Why do we use the Meta class?
+### :rocket: Why do we use the Meta class?
 ```drf
 ModelSerializer needs to know:
 
@@ -153,12 +153,12 @@ Any extra configuration for fields?
 All of this is defined inside the Meta class.
 ```
 
-### What's the purpose of "fields" in ModelSerializer
+### :rocket: What's the purpose of "fields" in ModelSerializer
 ```drf
 In Django REST Framework (DRF), the fields attribute inside a ModelSerializer's Meta class explicitly controls which database
 columns or properties are included in your API's JSON input and output.
 ```
-### How many types of validation are there?
+### :rocket: How many types of validation are there?
 |Type|Purpose|
 |------|-----|
 |Built-in Validation|DRF/Model does it automatically|
@@ -167,7 +167,7 @@ columns or properties are included in your API's JSON input and output.
 | Reusable Validator|Repeatedly using the same validation Custom validator function, RegexValidator, MinValueValidatorr|
 
 
-### What validations does DRF do in ModelSerializer and what does it not do?
+### :rocket: What validations does DRF do in ModelSerializer and what does it not do?
 |Validation|Automatic?|
 |-------|-------|
 |required|✅|
@@ -194,7 +194,7 @@ columns or properties are included in your API's JSON input and output.
 | Custom email domain             | ❌                            |
 | Custom phone format             | ❌ (unless using a validator) |
 
-### What is the Nested Serializer?
+### :rocket: What is the Nested Serializer?
 ```drf
 A Nested Serializer is a serializer inside another serializer.
 
@@ -202,25 +202,25 @@ A Nested Serializer is a serializer inside another serializer.
 It is used when one model is related to another model, and you want to return the related object's details, not just its ID.
 ```
 
-### Core Architecture Components
+### :rocket: Core Architecture Components
     - Serializers
     - API Views & ViewSets
     - Routers
     - Authentication & Permissions
-### Key Benefits
+### :rocket: Key Benefits
     - Browsable API
     - Massive Time Savings
     - Exceptional Scale
 
-### Requests
-### Responses
+### :rocket: Requests
+### :rocket: Responses
 <hr>
 
-### Functions based view
+### :rocket: Functions based view
 
 <hr>
 
-### Class based view
+### :rocket: Class based view
 
 ```drf
     Layer 1: Base API Views (2 Classes)
@@ -943,8 +943,8 @@ It is used when one model is related to another model, and you want to return th
 ```
 
 
-# Throttling
-### UserRateThrottle
+# :rocket: Throttling
+### :rocket: UserRateThrottle
 ```drf
 serRateThrottle প্রতিটি Login করা User-এর জন্য আলাদা request limit সেট করে।
 এটি User ID (অর্থাৎ request.user) ব্যবহার করে user-কে শনাক্ত করে।
@@ -968,7 +968,7 @@ REST_FRAMEWORK = {
 }
 ```
 
-### AnonRateThrottle
+### :rocket: AnonRateThrottle
 ```drf
 AnonRateThrottle হলো এমন একটি Throttle Class যা শুধুমাত্র Anonymous (Unauthenticated)
 user-এর request limit করে।
@@ -992,7 +992,7 @@ REST_FRAMEWORK = {
     }
 }
 ```
-#### যদি দুটো একসাথে ব্যবহার করি?
+#### :rocket: যদি দুটো একসাথে ব্যবহার করি?
 ```drf
 In settings.py
 
@@ -1009,7 +1009,7 @@ REST_FRAMEWORK = {
 }
 ```
 
-### ScopedRateThrottle
+### :rocket: ScopedRateThrottle
 ```drf
 ScopedRateThrottle হলো DRF-এর একটি Built-in Throttle Class, যা নির্দিষ্ট API বা 
 API Group-এর জন্য আলাদা Rate Limit সেট করতে ব্যবহৃত হয়।
@@ -1056,7 +1056,7 @@ class PaymentAPIView(APIView):
 
 ```
 
-### AnonRateThrottle vs UserRateThrottle vs ScopedRateThrottle
+### :rocket: AnonRateThrottle vs UserRateThrottle vs ScopedRateThrottle
 
 | Feature         | AnonRateThrottle | UserRateThrottle   | ScopedRateThrottle  |
 | --------------- | ---------------- | ------------------ | ------------------- |
