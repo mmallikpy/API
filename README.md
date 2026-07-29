@@ -41,10 +41,8 @@ REST APIs work on a Client-Server model.
     2. The Server (where the database lives) receives the request, processes it, and sends back data.
 ```
 ### :rocket: The 4 Main HTTP Methods (CRUD Operations)
-- #### GET
-  ```drf
-    Requests data from the server
-  ```
+- #### GET = Requests data from the server
+
 - #### POST
   ```drf
     Sends new data to the server to create something. 
