@@ -1,21 +1,24 @@
 # ----------------------------- API -----------------------------
 ### :rocket: What is API?
 ```drf
-API (application programming interface) is a defined set of rules that allows one piece of software to request data or
-actions from another. It specifies how requests are made, what information is exchanged, and how responses are returned,
-so systems can interact without exposing their internal code.
+API (application programming interface) is a defined set of rules that allows one piece of software to 
+request data or actions from another. It specifies how requests are made, what information is exchanged,
+and how responses are returned, so systems can interact without exposing their internal code.
 ```
 ### :rocket: How dose it's work?
 ```drf
-An API works like a waiter in a restaurant, acting as the middleman between you (the client) and the kitchen (the server).
+An API works like a waiter in a restaurant, acting as the middleman between you (the client) and the 
+kitchen (the server).
 
 Here is the step-by-step process of how it works in real-time:
 The 4-Step API Process
-    1. The Request: You interact with an app (like searching for a flight). The app sends a structured request to a remote
-    server via the API.
+    1. The Request: You interact with an app (like searching for a flight). The app sends a structured 
+    request to a remote server via the API.
     2. The Delivery: The API securely delivers this request across the internet to the correct server.
-    3. The Response: The server processes the request, looks up the data in its database, and formulates an answer.
-    4. The Translation: The API takes that data back to your app, which translates it into a readable format on your screen.
+    3. The Response: The server processes the request, looks up the data in its database, and formulates 
+      an answer.
+    4. The Translation: The API takes that data back to your app, which translates it into a readable 
+      format on your screen.
 ```
 ### :rocket: Based on Architectures how much API are available?
 
@@ -30,9 +33,9 @@ The 4-Step API Process
 
 ### :rocket: What is REST API?
 ```drf
-A REST API (Representational State Transfer) is a popular architectural style used to build web services. It allows two computers
-to communicate over the internet using standard web protocols like HTTP.Think of it as a set of rules that developers follow so
-their applications can talk to each other smoothly.
+A REST API (Representational State Transfer) is a popular architectural style used to build web services.
+It allows two computers to communicate over the internet using standard web protocols like HTTP.Think of 
+it as a set of rules that developers follow so their applications can talk to each other smoothly.
 ```
 ### :rocket: How a REST API Works?
 ```drf
@@ -56,7 +59,8 @@ REST APIs work on a Client-Server model.
 
 ### :rocket: What is API endpoints?
 ```drf
-An API endpoint is a specific URL where an application sends requests to interact with another application or service.
+An API endpoint is a specific URL where an application sends requests to interact with another 
+application or service.
 
 Think of it like this:
     API = A waiter in a restaurant that takes your order and brings back your food.
@@ -92,8 +96,8 @@ https://api.weather.com/users
       ```
   - #### API endpoints
     ```drf
-    An API endpoint is a URL that returns data (usually JSON or XML) instead of a web page. It is designed for applications to
-    communicate with each other.
+    An API endpoint is a URL that returns data (usually JSON or XML) instead of a web page. It is 
+    designed for applications to communicate with each other.
     ```
     - ##### Examples
       ```drf
@@ -113,19 +117,21 @@ https://api.weather.com/users
 
 # :rocket: What is DRF?
 ```drf
-DRF stands for Django REST Framework, which is a powerful, flexible, and open-source toolkit built on top of Django specifically
-for creating Web APIs (Application Programming Interfaces)
+DRF stands for Django REST Framework, which is a powerful, flexible, and open-source toolkit built 
+on top of Django specifically for creating Web APIs (Application Programming Interfaces)
 ```
 
 ### :rocket: Serializers and dserializers
 ```drf
-Serializers allow complex data such as querysets and model instances to be converted to native Python datatypes that can then
-be easily rendered into JSON, XML or other content types. Serializers also provide deserialization, allowing parsed data to be
-converted back into complex types, after first validating the incoming data.
+Serializers allow complex data such as querysets and model instances to be converted to native 
+Python datatypes that can then be easily rendered into JSON, XML or other content types. 
+Serializers also provide deserialization, allowing parsed data to be converted back into complex 
+types, after first validating the incoming data.
 ```
 ### :rocket: What is the Meta class?
 ```drf
-The Meta class is an inner class inside a ModelSerializer that provides configuration to the serializer.
+The Meta class is an inner class inside a ModelSerializer that provides configuration to the 
+serializer.
 
 It tells Django REST Framework how the serializer should behave.
 ```
@@ -144,8 +150,9 @@ All of this is defined inside the Meta class.
 
 ### :rocket: What's the purpose of "fields" in ModelSerializer
 ```drf
-In Django REST Framework (DRF), the fields attribute inside a ModelSerializer's Meta class explicitly controls which database
-columns or properties are included in your API's JSON input and output.
+In Django REST Framework (DRF), the fields attribute inside a ModelSerializer's Meta class 
+explicitly controls which database columns or properties are included in your API's JSON 
+input and output.
 ```
 ### :rocket: How many types of validation are there?
 |Type|Purpose|
@@ -188,7 +195,8 @@ columns or properties are included in your API's JSON input and output.
 A Nested Serializer is a serializer inside another serializer.
 
 
-It is used when one model is related to another model, and you want to return the related object's details, not just its ID.
+It is used when one model is related to another model, and you want to return the related
+object's details, not just its ID.
 ```
 
 ### :rocket: Core Architecture Components
@@ -248,27 +256,30 @@ It is used when one model is related to another model, and you want to return th
   - APIView
     - get
       ```drf
-      The get() method handles HTTP GET requests. It is used to retrieve data from the database. It can return either
-      a list of objects or a single object, depending on the API design.
+      The get() method handles HTTP GET requests. It is used to retrieve data from the database.
+      It can return either a list of objects or a single object, depending on the API design.
       ```
     - post
       ```drf
-      The post() method handles HTTP POST requests. It is used to create a new object. It validates the incoming data
-      using a serializer, saves the object, and returns the created resource.
+      The post() method handles HTTP POST requests. It is used to create a new object. It 
+      validates the incoming data using a serializer, saves the object, and returns the 
+      created resource.
       ```
     - get_object
       ```drf
-      get_object() is a helper method used to retrieve a single object from the database. It is commonly used in detail
-      APIs before updating, retrieving, or deleting an object. If the object is not found, it usually raises a 404 error.
+      get_object() is a helper method used to retrieve a single object from the database. 
+      It is commonly used in detail APIs before updating, retrieving, or deleting an object. 
+      If the object is not found, it usually raises a 404 error.
       ```
     - put
       ```drf
-      The put() method handles HTTP PUT requests. It is used to perform a full update of an existing object. The client
-      should send all required fields.
+      The put() method handles HTTP PUT requests. It is used to perform a full update of an 
+      existing object. The client should send all required fields.
       ```
     - delete
       ```drf
-      The delete() method handles HTTP DELETE requests. It is used to remove an existing object from the database.
+      The delete() method handles HTTP DELETE requests. It is used to remove an existing 
+      object from the database.
       After successful deletion, it typically returns a 204 No Content response.
       ```
     #### Examples :
