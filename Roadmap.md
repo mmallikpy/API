@@ -99,6 +99,20 @@
 
 </hr>
 
+# DRF Filtering Roadmap (Recommended Learning Order)
+
+যেহেতু তুমি DRF শিখছ, আমি এই ক্রমে শেখার পরামর্শ দেব:
+
+- Manual Filtering (get_queryset())
+- django-filter (FilterSet)
+- SearchFilter
+- OrderingFilter
+- Combining Search + Ordering + django-filter
+- Custom Filter Backend
+- Advanced FilterSet (RangeFilter, DateFilter, MethodFilter, MultipleChoiceFilter, BooleanFilter ইত্যাদি)
+
+</hr>
+
 # One thing I want you to add
 
 #### I noticed your documentation is concept-based.
