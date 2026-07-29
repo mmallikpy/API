@@ -366,9 +366,9 @@ object's details, not just its ID.
       ```
   - Mixins
     ```drf
-    GenericAPIView provides the core functionality required by DRF mixins, such as get_queryset(), get_object(), and
-    get_serializer().RetrieveModelMixin uses these methods to retrieve an object and serialize it. Without GenericAPIView,
-    the mixin cannot work properly.
+    GenericAPIView provides the core functionality required by DRF mixins, such as get_queryset(), 
+    get_object(), and get_serializer().RetrieveModelMixin uses these methods to retrieve an object
+    and serialize it. Without GenericAPIView, the mixin cannot work properly.
     ```
     - retriewModelMixin
       ```drf
@@ -376,27 +376,28 @@ object's details, not just its ID.
       ```
     - CreateModelMixin
         ```drf
-        CreateModelMixin is used to create a single object in the database. It provides the built-in create() method,
-        which validates the request data, saves the object, and returns a 201 Created response. It does not support
-        bulk creation by default. To create multiple objects, you must use many=True and implement bulk creation logic
-        if needed.
+        CreateModelMixin is used to create a single object in the database. It provides the built-in 
+        create() method, which validates the request data, saves the object, and returns a 201 Created 
+        response. It does not support bulk creation by default. To create multiple objects, you must 
+        use many=True and implement bulk creation logic if needed.
         ```    
     - ListModelMixin
       ```drf
-      ListModelMixin is used to return a collection of objects. It provides the built-in list() method, which retrieves
-      the queryset, serializes it with many=True, and returns the serialized data in the response. It is commonly used
-      for endpoints like GET /students/.
+      ListModelMixin is used to return a collection of objects. It provides the built-in list() method, 
+      which retrieves the queryset, serializes it with many=True, and returns the serialized data in the 
+      response. It is commonly used for endpoints like GET /students/.
       ```
     - UpdateModelMixin
       ```drf
-      UpdateModelMixin is used to update an existing object. It provides the built-in update() method for full updates
-      (PUT) and partial_update() for partial updates (PATCH). It retrieves the object, validates the incoming data, saves
-      the changes, and returns the updated object in the response.
+      UpdateModelMixin is used to update an existing object. It provides the built-in update() method
+      for full updates (PUT) and partial_update() for partial updates (PATCH). It retrieves the object, 
+      validates the incoming data, saves the changes, and returns the updated object in the response.
       ```
     - DestroyModelMixin
       ```drf
-      DestroyModelMixin is used to delete a single object from the database. It provides the built-in destroy() method,
-      which retrieves the object, calls perform_destroy(), deletes the object, and returns a 204 No Content response.
+      DestroyModelMixin is used to delete a single object from the database. It provides the built-in 
+      destroy() method, which retrieves the object, calls perform_destroy(), deletes the object, and 
+      returns a 204 No Content response.
       ```
     #### Examples :
     - ##### serializers.py
@@ -451,50 +452,59 @@ object's details, not just its ID.
   - Generics
     - ListAPIView
       ```drf
-      ListAPIView is a generic class-based view used to retrieve a list of objects. It handles GET requests and internally uses
-      ListModelMixin with GenericAPIView. It automatically fetches the queryset, serializes it with many=True, and returns the
+      ListAPIView is a generic class-based view used to retrieve a list of objects. It handles GET 
+      requests and internally uses
+      ListModelMixin with GenericAPIView. It automatically fetches the queryset, serializes it with 
+      many=True, and returns the
       list of objects. It also supports pagination, filtering, and ordering if configured.
       ```
     - CreateAPIView
       ```drf
-      CreateAPIView is a generic class-based view used to create a new object. It handles POST requests and internally uses
-      CreateModelMixin with GenericAPIView. It validates the request data using the serializer, saves the object, and returns
-      a 201 Created response.
+      CreateAPIView is a generic class-based view used to create a new object. It handles POST requests 
+      and internally uses
+      CreateModelMixin with GenericAPIView. It validates the request data using the serializer, saves 
+      the object, and returns a 201 Created response.
       ```
     - RetrieveAPIView
       ```drf
-      RetrieveAPIView is a generic class-based view used to retrieve a single object. It handles GET requests for a specific
-      resource and internally uses RetrieveModelMixin with GenericAPIView. It fetches the object by its lookup field
-      (usually the primary key), serializes it, and returns the response.
+      RetrieveAPIView is a generic class-based view used to retrieve a single object. It handles GET 
+      requests for a specific resource and internally uses RetrieveModelMixin with GenericAPIView. 
+      It fetches the object by its lookup field (usually the primary key), serializes it, and returns 
+      the response.
       ```
     - UpdateAPIView
       ```drf
-      UpdateAPIView is a generic class-based view used to update an existing object. It handles both PUT and PATCH requests
-      and internally uses UpdateModelMixin with GenericAPIView. PUT performs a full update, while PATCH performs a partial update.
+      UpdateAPIView is a generic class-based view used to update an existing object. It handles both 
+      PUT and PATCH requests and internally uses UpdateModelMixin with GenericAPIView. PUT performs 
+      a full update, while PATCH performs a partial update.
       ```
     - DestroyAPIView
       ```drf
-      DestroyAPIView is a generic class-based view used to delete a single object. It handles DELETE requests and internally uses
-      DestroyModelMixin with GenericAPIView. It retrieves the object, deletes it, and returns a 204 No Content response.
+      DestroyAPIView is a generic class-based view used to delete a single object. It handles DELETE 
+      requests and internally uses
+      DestroyModelMixin with GenericAPIView. It retrieves the object, deletes it, and returns a 204 
+      No Content response.
       ```
     ###### Combination API view
     - ListCreateAPIView
       ```drf
-      ListCreateAPIView is a generic class-based view that combines listing and creating objects. It handles GET requests to return
-      a list of objects and POST requests to create a new object. Internally, it uses ListModelMixin, CreateModelMixin, and
-      GenericAPIView.
+      ListCreateAPIView is a generic class-based view that combines listing and creating objects. 
+      It handles GET requests to return
+      a list of objects and POST requests to create a new object. Internally, it uses ListModelMixin, 
+      CreateModelMixin, and GenericAPIView.
       ```
     - RetrieveUpdateAPIView
       ```drf
-      RetrieveUpdateAPIView is a generic class-based view that combines retrieving and updating a single object. It handles GET
-      requests to retrieve an object and PUT or PATCH requests to update it. Internally, it uses RetrieveModelMixin, UpdateModelMixin,
-      and GenericAPIView.
+      RetrieveUpdateAPIView is a generic class-based view that combines retrieving and updating a single
+      object. It handles GET requests to retrieve an object and PUT or PATCH requests to update it. 
+      Internally, it uses RetrieveModelMixin, UpdateModelMixin, and GenericAPIView.
       ```
     - RetieveUpdateDestroyAPIview
       ```drf
-      RetrieveUpdateDestroyAPIView is a generic class-based view that combines retrieving, updating, and deleting a single object.
-      It handles GET, PUT, PATCH, and DELETE requests. Internally, it uses RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin,
-      and GenericAPIView.
+      RetrieveUpdateDestroyAPIView is a generic class-based view that combines retrieving, updating, 
+      and deleting a single object.
+      It handles GET, PUT, PATCH, and DELETE requests. Internally, it uses RetrieveModelMixin, 
+      UpdateModelMixin, DestroyModelMixin, and GenericAPIView.
       ```
 
       #### Examples :
@@ -583,28 +593,30 @@ object's details, not just its ID.
     - viewsets.ViewSet
       - list
         ```drf
-        The list() action is used to retrieve a collection of objects. It handles HTTP GET requests for a collection endpoint,
-        such as /students/, and returns a serialized list of objects.
+        The list() action is used to retrieve a collection of objects. It handles HTTP GET requests 
+        for a collection endpoint, such as /students/, and returns a serialized list of objects.
         ```
       - create
         ```drf
-        The create() action is used to create a new object. It handles HTTP POST requests, validates the request data using a
-        serializer, saves the object, and returns a 201 Created response.
+        The create() action is used to create a new object. It handles HTTP POST requests, validates 
+        the request data using a serializer, saves the object, and returns a 201 Created response.
         ```
       - retrieve
         ```drf
-        The retrieve() action is used to retrieve a single object. It handles HTTP GET requests for a detail endpoint, such as
-        /students/1/, fetches the object by its lookup field (usually the primary key), serializes it, and returns it.
+        The retrieve() action is used to retrieve a single object. It handles HTTP GET requests for a 
+        detail endpoint, such as /students/1/, fetches the object by its lookup field 
+        (usually the primary key), serializes it, and returns it.
         ```
       - update
         ```drf
-        The update() action is used to perform a full update of an existing object. It handles HTTP PUT requests, validates the
-        incoming data, updates the object, and returns the updated object.
+        The update() action is used to perform a full update of an existing object. It handles 
+        HTTP PUT requests, validates the incoming data, updates the object, and returns the updated 
+        object.
         ```
       - delete
         ```drf
-        The destroy() action is used to delete an existing object. It handles HTTP DELETE requests, removes the object from the
-        database, and returns a 204 No Content response.
+        The destroy() action is used to delete an existing object. It handles HTTP DELETE requests, 
+        removes the object from the database, and returns a 204 No Content response.
         ```
     #### Examples :
     - ##### serializers.py
@@ -694,8 +706,9 @@ object's details, not just its ID.
 - viewsets.GenericViewSet
   - #### What is it?
     ```drf
-        enericViewSet is a DRF class that combines GenericAPIView and ViewSet. It provides generic features
-        (queryset, serializer, filtering, pagination, etc.) but does not implement CRUD actions by itself.
+        enericViewSet is a DRF class that combines GenericAPIView and ViewSet. It provides generic 
+        features (queryset, serializer, filtering, pagination, etc.) but does not implement CRUD 
+        actions by itself.
     ```
   - #### What problem does it solve?
     ```drf
@@ -778,9 +791,9 @@ object's details, not just its ID.
 ##### Pagination
 - ##### What is it?
   ```drf
-  Pagination is a feature in Django REST Framework (DRF) that divides a large queryset into smaller pages and returns
-  only a limited number of records in each API response. Instead of returning all records at once, the API returns a
-  subset (page) along with information about other pages.
+  Pagination is a feature in Django REST Framework (DRF) that divides a large queryset into smaller 
+  pages and returns only a limited number of records in each API response. Instead of returning all 
+  records at once, the API returns a subset (page) along with information about other pages.
   ```
 - ##### Why was it created?
   ```drf
@@ -792,8 +805,8 @@ object's details, not just its ID.
   - GlobalPagination
   - PageNumberPagination
     ```drf
-    PageNumberPagination is the default pagination class in Django REST Framework (DRF) that divides a queryset
-    into pages and lets clients request a specific page using a page number.
+    PageNumberPagination is the default pagination class in Django REST Framework (DRF) that divides 
+    a queryset into pages and lets clients request a specific page using a page number.
     ```
     - Examples
       ```drf
@@ -826,8 +839,9 @@ object's details, not just its ID.
 - LimitOffsetPagination
   - #### What is it?
     ```drf
-        LimitOffsetPagination is a built-in pagination class in Django REST Framework (DRF) that paginates data using limit
-        (how many records to return) and offset (how many records to skip).
+        LimitOffsetPagination is a built-in pagination class in Django REST Framework (DRF) 
+        that paginates data using limit (how many records to return) and offset 
+        (how many records to skip).
     ```
     - Example
       ```drf
@@ -865,12 +879,14 @@ object's details, not just its ID.
   - CursorPagination
     - #### What is it?
       ```drf
-          CursorPagination is a built-in pagination class in Django REST Framework (DRF) that paginates data using a cursor
-          instead of page numbers or offsets. A cursor is an encoded token that tells the API where to continue fetching records.
+          CursorPagination is a built-in pagination class in Django REST Framework (DRF) that 
+          paginates data using a cursor instead of page numbers or offsets. A cursor is an 
+          encoded token that tells the API where to continue fetching records.
       ```
     - #### Why was it created?
       ```drf
-          It was created to solve the problems of PageNumberPagination and LimitOffsetPagination when working with:
+          It was created to solve the problems of PageNumberPagination and LimitOffsetPagination 
+          when working with:
 
             Very large datasets
             Frequently changing data
@@ -883,7 +899,8 @@ object's details, not just its ID.
             Records can be duplicated or skipped.
             Large offsets become slow on large databases.
     
-            CursorPagination solves these problems by using a cursor that always continues from the last fetched record.
+            CursorPagination solves these problems by using a cursor that always continues from 
+            the last fetched record.
       ```
     - #### Common Attributes
       ```drf
