@@ -972,7 +972,7 @@ API Group-এর জন্য আলাদা Rate Limit সেট করতে 
 ```
 
 ### AnonRateThrottle vs UserRateThrottle vs ScopedRateThrottle
-```drf
+
 | Feature         | AnonRateThrottle | UserRateThrottle   | ScopedRateThrottle  |
 | --------------- | ---------------- | ------------------ | ------------------- |
 | কাদের জন্য      | Anonymous User   | Authenticated User | নির্দিষ্ট API/Scope |
@@ -981,4 +981,3 @@ API Group-এর জন্য আলাদা Rate Limit সেট করতে 
 | Public API      | ✅                | ❌                  | ✅                   |
 | Login API       | ❌                | ❌                  | ✅                   |
 | Payment API     | ❌                | ❌                  | ✅                   |
-```
