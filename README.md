@@ -1,5 +1,5 @@
 # ----------------------------- API -----------------------------
-### What is API?
+### :white_check_mark: What is API?
 ```drf
 API (application programming interface) is a defined set of rules that allows one piece of software to request data or
 actions from another. It specifies how requests are made, what information is exchanged, and how responses are returned,
@@ -18,9 +18,9 @@ The 4-Step API Process
     4. The Translation: The API takes that data back to your app, which translates it into a readable format on your screen.
 ```
 ### Based on Architectures how much API are available?
-```drf
-4 types API are available
-```
+
+#### 4 types API are available
+
 |API Type|Best Used For|Data Format|
 |------------|-------------------|-----|
 |REST|Web applications and mobile apps|JSON, XML, HTML|
