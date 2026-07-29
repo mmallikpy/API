@@ -953,6 +953,21 @@ serRateThrottle প্রতিটি Login করা User-এর জন্য �
 - Login করা user → ✅ Throttle প্রযোজ্য
 - Login না করা user → ❌ এই throttle কাজ করবে না
 ```
+#### Example
+```drf
+In settings.py
+
+REST_FRAMEWORK = {
+    "DEFAULT_THROTTLE_CLASSES": [
+        "rest_framework.throttling.UserRateThrottle",
+    ],
+
+    "DEFAULT_THROTTLE_RATES": {
+        "user": "5/min",
+    }
+}
+```
+
 ### AnonRateThrottle
 ```drf
 AnonRateThrottle হলো এমন একটি Throttle Class যা শুধুমাত্র Anonymous (Unauthenticated)
@@ -963,12 +978,78 @@ user-এর request limit করে।
 Login করা user → ❌ এই throttle প্রযোজ্য নয়
 Login না করা user → ✅ এই throttle প্রযোজ্য
 ```
+#### Example
+```drf
+In settings.py
+
+REST_FRAMEWORK = {
+    "DEFAULT_THROTTLE_CLASSES": [
+        "rest_framework.throttling.AnonRateThrottle",
+    ],
+
+    "DEFAULT_THROTTLE_RATES": {
+        "anon": "5/min",
+    }
+}
+```
+#### যদি দুটো একসাথে ব্যবহার করি?
+```drf
+In settings.py
+
+REST_FRAMEWORK = {
+    "DEFAULT_THROTTLE_CLASSES": [
+        "rest_framework.throttling.AnonRateThrottle",
+        "rest_framework.throttling.UserRateThrottle",
+    ],
+
+    "DEFAULT_THROTTLE_RATES": {
+        "anon": "10/min",
+        "user": "100/min",
+    }
+}
+```
+
 ### ScopedRateThrottle
 ```drf
 ScopedRateThrottle হলো DRF-এর একটি Built-in Throttle Class, যা নির্দিষ্ট API বা 
 API Group-এর জন্য আলাদা Rate Limit সেট করতে ব্যবহৃত হয়।
 
 অর্থাৎ, একই Project-এর বিভিন্ন API-এর জন্য আপনি ভিন্ন ভিন্ন request limit দিতে পারবেন।
+```
+#### Example
+```drf
+
+REST_FRAMEWORK = {
+    "DEFAULT_THROTTLE_CLASSES": [
+        "rest_framework.throttling.ScopedRateThrottle",
+    ],
+
+    "DEFAULT_THROTTLE_RATES": {
+        "products": "1000/hour",
+        "login": "5/min",
+        "payment": "10/hour",
+    }
+}
+
+
+
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.throttling import ScopedRateThrottle
+
+class ProductViewSet(ModelViewSet):
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = "products"
+
+
+class LoginAPIView(APIView):
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = "login"
+
+
+class PaymentAPIView(APIView):
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = "payment"
+
 ```
 
 ### AnonRateThrottle vs UserRateThrottle vs ScopedRateThrottle

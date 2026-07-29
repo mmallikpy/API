@@ -37,7 +37,7 @@
 #### IsAuthenticatedOrReadOnly
 #### Custom Permission
 
-### Throttling
+### Throttling (Done ✅)
 #### UserRateThrottle
 #### AnonRateThrottle
 #### ScopedRateThrottle
