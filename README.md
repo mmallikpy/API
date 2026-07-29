@@ -954,4 +954,31 @@ serRateThrottle প্রতিটি Login করা User-এর জন্য �
 - Login না করা user → ❌ এই throttle কাজ করবে না
 ```
 ### AnonRateThrottle
+```drf
+AnonRateThrottle হলো এমন একটি Throttle Class যা শুধুমাত্র Anonymous (Unauthenticated)
+user-এর request limit করে।
+
+অর্থাৎ—
+
+Login করা user → ❌ এই throttle প্রযোজ্য নয়
+Login না করা user → ✅ এই throttle প্রযোজ্য
+```
 ### ScopedRateThrottle
+```drf
+ScopedRateThrottle হলো DRF-এর একটি Built-in Throttle Class, যা নির্দিষ্ট API বা 
+API Group-এর জন্য আলাদা Rate Limit সেট করতে ব্যবহৃত হয়।
+
+অর্থাৎ, একই Project-এর বিভিন্ন API-এর জন্য আপনি ভিন্ন ভিন্ন request limit দিতে পারবেন।
+```
+
+### AnonRateThrottle vs UserRateThrottle vs ScopedRateThrottle
+```drf
+| Feature         | AnonRateThrottle | UserRateThrottle   | ScopedRateThrottle  |
+| --------------- | ---------------- | ------------------ | ------------------- |
+| কাদের জন্য      | Anonymous User   | Authenticated User | নির্দিষ্ট API/Scope |
+| শনাক্তকরণ       | IP Address       | User ID            | User/IP + Scope     |
+| আলাদা API Limit | ❌                | ❌                  | ✅                   |
+| Public API      | ✅                | ❌                  | ✅                   |
+| Login API       | ❌                | ❌                  | ✅                   |
+| Payment API     | ❌                | ❌                  | ✅                   |
+```
