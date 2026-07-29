@@ -1,91 +1,93 @@
 # My recommended roadmap (Basic → Mid-Level)
 ## Phase 1 (Done ✅)
-### Models
-### Serializer
-### Validation
-### APIView
-### Mixins
-### Generic Views
-### ViewSets
+#### Models
+#### Serializer
+#### Validation
+#### APIView
+#### Mixins
+#### Generic Views
+#### ViewSets
+</hr>
+
 ## Phase 2 (Must Learn Next)
 ## Filtering
-### filter()
-### get_queryset()
-### SearchFilter
-### OrderingFilter
-### DjangoFilterBackend
+#### filter()
+#### get_queryset()
+#### SearchFilter
+#### OrderingFilter
+#### DjangoFilterBackend
 ## Pagination
-### PageNumberPagination
-### LimitOffsetPagination
-### CursorPagination
-### Custom Pagination
+#### PageNumberPagination
+#### LimitOffsetPagination
+#### CursorPagination
+#### Custom Pagination
 # Authentication
-### SessionAuthentication
-### BasicAuthentication
-### TokenAuthentication
-### JWT Authentication
+#### SessionAuthentication
+#### BasicAuthentication
+#### TokenAuthentication
+#### JWT Authentication
 # Permissions
-### AllowAny
-### IsAuthenticated
-### IsAdminUser
-### IsAuthenticatedOrReadOnly
-### Custom Permission
+#### AllowAny
+#### IsAuthenticated
+#### IsAdminUser
+#### IsAuthenticatedOrReadOnly
+#### Custom Permission
 # Throttling
-### UserRateThrottle
-### AnonRateThrottle
-### ScopedRateThrottle
+#### UserRateThrottle
+#### AnonRateThrottle
+#### ScopedRateThrottle
 # Versioning
-### URL Versioning
-### Namespace Versioning
+#### URL Versioning
+#### Namespace Versioning
 # Parsers & Renderers
-### JSONParser
-### MultiPartParser
-### JSONRenderer
-### BrowsableAPIRenderer
+#### JSONParser
+#### MultiPartParser
+#### JSONRenderer
+#### BrowsableAPIRenderer
 # File Upload
-### Image Upload
-### File Upload
+#### Image Upload
+#### File Upload
 # Relationships
-### Nested Serializer
-### PrimaryKeyRelatedField
-### SlugRelatedField
-### HyperlinkedRelatedField
+#### Nested Serializer
+#### PrimaryKeyRelatedField
+#### SlugRelatedField
+#### HyperlinkedRelatedField
 # ViewSets
-### GenericViewSet
-### ModelViewSet
-### ReadOnlyModelViewSet
-### @action
+#### GenericViewSet
+#### ModelViewSet
+#### ReadOnlyModelViewSet
+#### @action
 # Routers
-### SimpleRouter
-### DefaultRouter
+#### SimpleRouter
+#### DefaultRouter
 # Serializer Advanced
-### to_representation()
-### to_internal_value()
-### Context
-### Dynamic Serializer
-### Multiple Serializers
+#### to_representation()
+#### to_internal_value()
+#### Context
+#### Dynamic Serializer
+#### Multiple Serializers
 # Query Optimization
-### select_related()
-### prefetch_related()
-### only()
-### defer()
-### annotate()
-### aggregate()
+#### select_related()
+#### prefetch_related()
+#### only()
+#### defer()
+#### annotate()
+#### aggregate()
 # Testing
-### APITestCase
-### APIClient
-### Force Authentication
+#### APITestCase
+#### APIClient
+#### Force Authentication
 # Documentation
-### Swagger/OpenAPI
-### drf-spectacular
+#### Swagger/OpenAPI
+#### drf-spectacular
 
 # One thing I want you to add
 
-### I noticed your documentation is concept-based.
+#### I noticed your documentation is concept-based.
 
-### I recommend adding a "Why?" section for every topic.
+#### I recommend adding a "Why?" section for every topic.
 
-###  For example:
+####  For example:
 ```drf
 ListAPIView
 
