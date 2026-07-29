@@ -941,5 +941,3 @@ It is used when one model is related to another model, and you want to return th
         'DEFAULT_RENDERER_CLASSES': ['rest_framework.renderers.JSONRenderer'],
     }
 ```
-
-### Test
