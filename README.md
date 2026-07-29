@@ -941,3 +941,17 @@ It is used when one model is related to another model, and you want to return th
         'DEFAULT_RENDERER_CLASSES': ['rest_framework.renderers.JSONRenderer'],
     }
 ```
+
+
+# Throttling
+### UserRateThrottle
+```drf
+serRateThrottle প্রতিটি Login করা User-এর জন্য আলাদা request limit সেট করে।
+এটি User ID (অর্থাৎ request.user) ব্যবহার করে user-কে শনাক্ত করে।
+
+অর্থাৎ—
+- Login করা user → ✅ Throttle প্রযোজ্য
+- Login না করা user → ❌ এই throttle কাজ করবে না
+```
+### AnonRateThrottle
+### ScopedRateThrottle
