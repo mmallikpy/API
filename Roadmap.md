@@ -10,76 +10,94 @@
 </hr>
 
 ## Phase 2 (Must Learn Next)
-## Filtering
+
+### Filtering
 #### filter()
 #### get_queryset()
 #### SearchFilter
 #### OrderingFilter
 #### DjangoFilterBackend
-## Pagination
+
+### Pagination
 #### PageNumberPagination
 #### LimitOffsetPagination
 #### CursorPagination
 #### Custom Pagination
-# Authentication
+
+### Authentication
 #### SessionAuthentication
 #### BasicAuthentication
 #### TokenAuthentication
 #### JWT Authentication
-# Permissions
+
+### Permissions
 #### AllowAny
 #### IsAuthenticated
 #### IsAdminUser
 #### IsAuthenticatedOrReadOnly
 #### Custom Permission
-# Throttling
+
+### Throttling
 #### UserRateThrottle
 #### AnonRateThrottle
 #### ScopedRateThrottle
-# Versioning
+
+### Versioning
 #### URL Versioning
 #### Namespace Versioning
-# Parsers & Renderers
+
+### Parsers & Renderers
 #### JSONParser
 #### MultiPartParser
 #### JSONRenderer
 #### BrowsableAPIRenderer
-# File Upload
+
+### File Upload
 #### Image Upload
 #### File Upload
-# Relationships
+
+### Relationships
 #### Nested Serializer
 #### PrimaryKeyRelatedField
 #### SlugRelatedField
 #### HyperlinkedRelatedField
-# ViewSets
+
+### ViewSets
 #### GenericViewSet
 #### ModelViewSet
 #### ReadOnlyModelViewSet
 #### @action
-# Routers
+
+### Routers
 #### SimpleRouter
 #### DefaultRouter
-# Serializer Advanced
+
+### Serializer Advanced
 #### to_representation()
 #### to_internal_value()
 #### Context
 #### Dynamic Serializer
 #### Multiple Serializers
-# Query Optimization
+
+### Query Optimization
 #### select_related()
 #### prefetch_related()
 #### only()
 #### defer()
 #### annotate()
 #### aggregate()
-# Testing
+
+### Testing
 #### APITestCase
 #### APIClient
 #### Force Authentication
-# Documentation
+
+### Documentation
 #### Swagger/OpenAPI
 #### drf-spectacular
+
+
+</hr>
 
 # One thing I want you to add
 
