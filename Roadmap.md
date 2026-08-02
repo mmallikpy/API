@@ -172,3 +172,26 @@ Can I build a small example without looking at notes?
 If you can answer all five, you've truly learned the topic rather than just memorized it.
 
 From what I've seen, you're on a solid path. I would continue with this approach.
+
+
+
+
+
+
+
+</hr>
+
+    💡 Deep Dive-এর পরবর্তী ধাপ (Serializer)
+
+    Serializer ভালোভাবে বুঝতে চাইলে এরপর এই বিষয়গুলো একে একে Deep Dive করা সবচেয়ে উপকারী হবে:
+
+    Serializer vs ModelSerializer
+    serializer.data vs validated_data
+    serializer.is_valid()
+    serializer.save()
+    create() vs update()
+    Field-level Validation (validate_<field>())
+    Object-level Validation (validate())
+    SerializerMethodField
+    Nested Serializer
+    ListSerializer
