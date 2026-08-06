@@ -20,6 +20,10 @@
     APIView কী?
     APIView এবং Django View-এর পার্থক্য কী
 
+    Filtering কী?
+    Filtering এবং Searching-এর পার্থক্য কী?
+    DjangoFilterBackend কী?
+
 ## Intermediate
     null=True এবং blank=True-এর পার্থক্য কী?
     ForeignKey এবং OneToOneField-এর পার্থক্য কী?
@@ -40,6 +44,9 @@
     dispatch() কী করে?
     initialize_request() কী করে?
     request.data এবং request.POST-এর পার্থক্য কী?
+    Manual Filtering কীভাবে কাজ করে?
+    filterset_fields কী?
+    FilterSet কী?
 ## Advanced
     ModelBase কী?
     Manager এবং QuerySet কীভাবে কাজ করে?
@@ -65,3 +72,8 @@
     APIView-এর Lifecycle ব্যাখ্যা করো।
     Authentication, Permission এবং Throttle কোন Order-এ Execute হয়?
     কেন Response ব্যবহার করা হয় JsonResponse-এর পরিবর্তে?
+
+    QuerySet Lazy Evaluation কী?
+    Filtering-এর সময় SQL কখন Execute হয়?
+    Custom Filter Backend কীভাবে তৈরি করবে?
+    Filtering-এর Performance কীভাবে Optimize করবে?

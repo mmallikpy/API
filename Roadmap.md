@@ -12,11 +12,36 @@
 ## Phase 2 (Must Learn Next)
 
 ### Filtering
-#### filter()
-#### get_queryset()
-#### SearchFilter
-#### OrderingFilter
-#### DjangoFilterBackend
+##### filter()
+##### get_queryset()
+##### SearchFilter
+##### OrderingFilter
+##### DjangoFilterBackend
+
+    Filtering-এর প্রধান উপায়:
+        Manual Filtering
+        DjangoFilterBackend
+        SearchFilter
+        OrderingFilter
+        Custom Filter Backend
+
+##### Features of DRF Filtering
+        Exact Filtering
+        Range Filtering
+        Greater Than Filtering
+        Less Than Filtering
+        Date Filtering
+        Date Range Filtering
+        Search Filtering
+        Ordering Filtering
+        Multiple Field Filtering
+        Custom Filtering
+        Boolean Filtering
+        ForeignKey Filtering
+        Choice Filtering
+        Method Filtering
+        Nested Filtering
+        Dynamic Filtering
 
 ### Pagination
 #### PageNumberPagination
