@@ -12,11 +12,11 @@
 ## Phase 2 (Must Learn Next)
 
 ### Filtering
-##### filter()
-##### get_queryset()
-##### SearchFilter
-##### OrderingFilter
-##### DjangoFilterBackend
+    filter()
+    get_queryset()
+    SearchFilter
+    OrderingFilter
+    DjangoFilterBackend
 
     Filtering-এর প্রধান উপায়:
         Manual Filtering
