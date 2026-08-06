@@ -13,6 +13,13 @@
     ModelSerializer কী?
     এদের মধ্যে পার্থক্য কী?
 
+    Validation কী?
+    is_valid() কী করে?
+    validated_data কী?
+
+    APIView কী?
+    APIView এবং Django View-এর পার্থক্য কী
+
 ## Intermediate
     null=True এবং blank=True-এর পার্থক্য কী?
     ForeignKey এবং OneToOneField-এর পার্থক্য কী?
@@ -25,6 +32,14 @@
     ModelSerializer কীভাবে Field Generate করে?
     create() Override কখন করবে?
     update() Override কখন করবে?
+
+    validate_<field>() এবং validate()-এর পার্থক্য কী?
+    serializer.errors কীভাবে কাজ করে?
+    Built-in Validation কোথা থেকে আসে?
+
+    dispatch() কী করে?
+    initialize_request() কী করে?
+    request.data এবং request.POST-এর পার্থক্য কী?
 ## Advanced
     ModelBase কী?
     Manager এবং QuerySet কীভাবে কাজ করে?
@@ -42,3 +57,11 @@
     ModelSerializer কি Serializer-এর Subclass?
 
     উত্তর: হ্যাঁ। ModelSerializer মূলত Serializer-এর উপর নির্মিত একটি Specialized Class, যা Model Metadata ব্যবহার করে অতিরিক্ত সুবিধা দেয়।
+
+    Validation-এর Execution Order কী?
+    to_internal_value() কী করে?
+    Serializer Validation, Model Validation এবং Database Constraint-এর মধ্যে পার্থক্য কী?
+
+    APIView-এর Lifecycle ব্যাখ্যা করো।
+    Authentication, Permission এবং Throttle কোন Order-এ Execute হয়?
+    কেন Response ব্যবহার করা হয় JsonResponse-এর পরিবর্তে?
